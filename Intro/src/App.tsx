@@ -5,12 +5,12 @@ const App = () => {
   const dispatch = useAppDispatch();
   const { count } = useAppSelector((state) => state.counter);
 
-  const incrementHandler = () => {
-    dispatch(increment());
+  const incrementHandler = (amount: number) => {
+    dispatch(increment(amount));
   };
 
-  const decrementHandler = () => {
-    dispatch(decrement());
+  const decrementHandler = (amount: number) => {
+    dispatch(decrement(amount));
   };
 
   return (
@@ -22,13 +22,19 @@ const App = () => {
         <h2 className="text-3xl font-bold mt-10">{count}</h2>
         <div className="gap-5 flex justify-between mt-10">
           <button
-            onClick={incrementHandler}
+            onClick={() => incrementHandler(5)}
+            className="rounded px-4 py-2 shadow-sm transition-all font-semibold shadow-[#29214244]"
+          >
+            Increment By 5
+          </button>
+          <button
+            onClick={() => incrementHandler(1)}
             className="rounded px-4 py-2 shadow-sm transition-all font-semibold shadow-[#29214244]"
           >
             Increment
           </button>
           <button
-            onClick={decrementHandler}
+            onClick={() => decrementHandler(1)}
             className="rounded px-4 py-2 shadow-sm font-semibold shadow-[#29214244]"
           >
             Decrement
