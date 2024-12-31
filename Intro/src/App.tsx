@@ -1,8 +1,11 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "../redux/features/counter/counterSlice";
 
 const App = () => {
   const dispatch = useDispatch();
+  const { count } = useSelector((state) => state.counter);
+
+  console.log(count);
 
   const incrementHandler = () => {
     dispatch(increment());
@@ -18,7 +21,7 @@ const App = () => {
         <h1 className="text-4xl font-semibold text-center">
           Counter with Redux
         </h1>
-        <h2 className="text-3xl font-bold mt-10">0</h2>
+        <h2 className="text-3xl font-bold mt-10">{count}</h2>
         <div className="gap-5 flex justify-between mt-10">
           <button
             onClick={incrementHandler}
