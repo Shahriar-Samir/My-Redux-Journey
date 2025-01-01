@@ -8,4 +8,4 @@ const routes = createBrowserRouter([
   },
 ]);
 
-export default routes
+export default routes;
